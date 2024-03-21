@@ -1,65 +1,3 @@
-# Computer-Vision-Projects
-
-# Pneumonia Detection Challenge
-## The Real Problem
-### What is Pneumonia?
-Pneumonia is an infection in one or both lungs. Bacteria, viruses, and fungi cause it. The infection causes inflammation in the air sacs in your lungs, which are called alveoli.Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. In 2017, 920,000 children under the age of 5 died from the disease. It requires review of a chest radiograph (CXR) by highly trained specialists and confirmation through clinical history, vital signs and laboratory exams. Pneumonia usually manifests as an area or areas of increased opacity on CXR. However, the diagnosis of pneumonia on CXR is complicated because of a number of other conditions in the lungs such as fluid overload (pulmonary edema), bleeding, volume loss (atelectasis or collapse), lung cancer, or post-radiation or surgical changes. Outside of the lungs, fluid in the pleural space (pleural effusion) also appears as increased opacity on CXR. When available, comparison of CXRs of the patient taken at different time points and correlation with clinical symptoms and history are helpful in making the diagnosis.
-CXRs are the most commonly performed diagnostic imaging study. A number of factors such as positioning of the patient and depth of inspiration can alter the appearance of the CXR, complicating interpretation further. In addition, clinicians are faced with reading high volumes of images every shift.
-Pneumonia Detection
-Now to detection Pneumonia we need to detect Inflammation of the lungs. In this project, you’re challenged to build an algorithm to detect a visual signal for pneumonia in medical images. Specifically, your algorithm needs to automatically locate lung opacities on chest radiographs. Business Domain Value Automating Pneumonia screening in chest radiographs, providing affected area details through bounding box. Assist physicians to make better clinical decisions or even replace human judgement in certain functional areas of healthcare (eg, radiology).
-Guided by relevant clinical questions, powerful AI techniques can unlock clinically relevant information hidden in the massive amount of data, which in turn can assist clinical decision making.
-
-### Project Description
-In this capstone project, the goal is to build a pneumonia detection system, to locate the position of inflammation in an image.
-Tissues with sparse material, such as lungs which are full of air, do not absorb the X-rays and appear black in the image. Dense tissues such as bones absorb X-rays and appear white in the image.
-While we are theoretically detecting “lung opacities”, there are lung opacities that are not pneumonia related.
-In the data, some of these are labeled “Not Normal No Lung Opacity”.
-This extra third class indicates that while pneumonia was determined not to be present, there was nonetheless some type of abnormality on the image and oftentimes this finding may mimic the appearance of true pneumonia.
-Dicom original images:- Medical images are stored in a special format called DICOM files (*.dcm). They contain a combination of header metadata as well as underlying raw image arrays for pixel data.
-
-### Details about the data and dataset files are given in below link,
-https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data
-
-### 1: Pre-Processing, Data Visualisation, EDA and Model Building
-
-● Exploring the given Data files, classes and images of different classes.
-
-● Dealing with missing values
-
-● Visualisation of different classes
-
-● Analysis from the visualisation of different classes.
-
-● Building a pneumonia detection model starting from basic CNN and then improving upon it.
-
-● Train the model
-
-● To deal with large training time, save the weights so that you can use them when training the model for the second time without starting from scratch. 
-
-### 2: Test the Model, Fine-tuning and Repeat 
-
-● Test the model and report as per evaluation metrics 
-
-● Try different models 
-
-● Set different hyper parameters, by trying different optimizers, loss functions, epochs, learning rate, batch size, checkpointing, early stopping etc..for these models to fine-tune them 
-
-● Report evaluation metrics for these models along with your observation on how changing different hyper parameters leads to change in the final evaluation metric.
-
-## Project Objectives
-The objective of the project are,
-
-● Learn to how to do build an Object Detection Model
-
-● Use transfer learning to fine-tune a model. ● Learn to set the optimizers, loss functions, epochs, learning rate, batch size, checkpointing, early stopping etc.
-
-● Read different research papers of given domain to obtain the knowledge of advanced models for the given problem.
-
-## Reference
-Acknowledgment for the datasets. https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview/acknowledgements
-
-
-
 # Capstone Project: Pneumonia Detection using Chest X-Rays
 
 ## Table of Contents
@@ -84,14 +22,19 @@ Acknowledgment for the datasets. https://www.kaggle.com/c/rsna-pneumonia-detecti
 
 ## Overview
 Pneumonia is an infection in one or both lungs. Bacteria, viruses, and fungi cause it. The infection causes inflammation in the air sacs in your lungs, which are called alveoli.
+
 Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. In 2015, 920,000 children under the age of 5 died from the disease. 
+
 While common, accurately diagnosing pneumonia is a tall order. It requires review of a chest radiograph (CXR) by highly trained specialists and confirmation through clinical history, vital signs and laboratory exams. 
+
 Pneumonia usually manifests as an area or areas of increased opacity on CXR. However, the diagnosis of pneumonia on CXR is complicated because of a number of other conditions in the lungs such as fluid overload (pulmonary edema), bleeding, volume loss (atelectasis or collapse), lung cancer, or post-radiation or surgical changes. 
+
 Outside of the lungs, fluid in the pleural space (pleural effusion) also appears as increased opacity on CXR. When available, comparison of CXRs of the patient taken at different time points and correlation with clinical symptoms and history are helpful in making the diagnosis.
+
 CXRs are the most commonly performed diagnostic imaging study. A number of factors such as positioning of the patient and depth of inspiration can alter the appearance of the CXR, complicating interpretation further. 
 
 
-Source: [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview) from Kaggle.
+- Source: [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview) from Kaggle.
 
 ## Problem Statement, Data, and Findings
 - The goal is to build a pneumonia detection system to locate the position of inflammation in an image. 
@@ -105,14 +48,10 @@ RSNA Pneumonia Detection Challenge by Kaggle (https://www.kaggle.com/c/rsna-pneu
 
 The data is organized in folders:
 
-● The training data is provided as a set of patient Ids and bounding boxes. Bounding boxes are defined as follows: x-min, y-min, width, height
-
-● There is also target column “ Target “ , indicating pneumonia or non-pneumonia.
-
-● There may be multiple rows per patient Id
-
-● All provided images are in DICOM format
-
+- The training data is provided as a set of patient Ids and bounding boxes. Bounding boxes are defined as follows: x-min, y-min, width, height
+- There is also target column “ Target “ , indicating pneumonia or non-pneumonia.
+- There may be multiple rows per patient Id
+- All provided images are in DICOM format
   - stage_2_detailed_class_info.csv:  In class detailed info dataset are given the detailed information about the type of positive or negative class associated with a certain patient.
   - stage_2_train_labels.csv: In train labels dataset are given the patient ID and the window (x min, y min, width and height of the) containing evidence of pneumonia.
   - stage_2_train_images.zip: The directory containing 26000 training set raw image (DICOM) files
@@ -157,24 +96,18 @@ The class imbalance was evident in the dataset, with a higher number of non-pneu
 
 ### EDA on DICOM Images Dataset
 Exploratory analysis on DICOM images provided insights into the characteristics of pneumonia opacities and other lung conditions.
-
-•	Distribution of Target among Males and Females
-•	Males cases are more as compared to female, but this is not hypothetically true that males are more susceptible to disease.
+  - Distribution of Target among Males and Females
+  - Males cases are more as compared to female, but this is not hypothetically true that males are more susceptible to disease.
 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/1a14977d-4c2c-4076-b938-e84c291b65bf)
 
 
 ### DICOM Images
 Visualizations were created to demonstrate how bounding boxes can highlight areas of lung opacity in X-ray images.
-
-•	Sample of Image of a random patient:
-
+- Sample of Image of a random patient:
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/cc60741f-0e90-4203-a3e7-b8ec12a685be)
-
-•	Dicom images with Bounding box locating lung opacity:
-
+- Dicom images with Bounding box locating lung opacity:
 Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
-
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/2b125ed7-53f6-4008-8ab4-b3f3cbf7517b)
 
 ## Data Pre-Processing
@@ -187,8 +120,7 @@ Since this problem is not only about prediction of classes (classification probl
 
 So, we will be using UNET architecture for the problem solution. For this we created a user defined function and that function return training images array(X_train) with corresponding mask and target variable.
 
- ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/9bf74eb8-ccdc-49cd-a1e0-c9c6398cc292)
-
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/9bf74eb8-ccdc-49cd-a1e0-c9c6398cc292)
 
 Since we also observed that data distribution is imbalanced for this, we wrote a script which first separate out two classes images into separate variable then combine full set of images with target label 1 and a subset of randomly picked images with label 0(that subset must be of length equal to the length of the full set for target 1)
 
@@ -196,14 +128,11 @@ For instance, if we have 10 images with target label 1 and 100 images with targe
 
 So this way we are able to get 1:1 distribution of classes.
 
- ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/48cb2376-2903-476d-b731-c91a058b4840)
-
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/48cb2376-2903-476d-b731-c91a058b4840)
 
 For UNET we need to feed images as arrays against the mask. So for the prediction of the bounding boxes we first try to predict mask of an image then after we use image processing python package OpenCV to get bounding rectangles and its coordinates. Below is the snapshot of the actual mask of an image.
 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/9b9ab573-f62d-4749-b19d-754e9d793fa8)
-
- 
 
 ## Model Building and Evaluation
 ### Training and Testing Data Splits
@@ -215,13 +144,12 @@ So, for UNET we created another set containing only images with target as 1 (Lun
 
 ### Convolutional Neural Network (Base Model)
 A CNN model was developed with layers designed to capture features relevant to pneumonia detection.
-
-  •	Used TensorFlow 2.0 and Keras wrapper for building classification model.
-  •	Used Conv layers of 64 and 128 features with same padding.
-  •	Applied 2x2 kernel Maxpooling2D layers to make the model lighter.
-  •	Relu activation is used as activation function.
-  •	After flattening of feature vector, we applied 2 dense layers and last layer with SoftMax activation.
-  •	Achieved Evaluation accuracy obtained is 82%
+  - Used TensorFlow 2.0 and Keras wrapper for building classification model.
+  - Used Conv layers of 64 and 128 features with same padding.
+  - Applied 2x2 kernel Maxpooling2D layers to make the model lighter.
+  - Relu activation is used as activation function.
+  - After flattening of feature vector, we applied 2 dense layers and last layer with SoftMax activation.
+  - Achieved Evaluation accuracy obtained is 82%
 
 #### Model Accuracy in basic CNN: 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3f81c952-743e-4e3d-9333-2b05a6ad9df2)
@@ -230,9 +158,9 @@ A CNN model was developed with layers designed to capture features relevant to p
 We used Transfer Learning model with two branches one for classification other for bounding box prediction using UNet. UNet architecture contains encoder and decoder layers, encoder layers of the transfer learning model are derived from MobileNet architecture and decoder is done using Upsampling of the blocks from the MobileNet architecture until we reach the actual size of the input i.e. 128x128
 
 #### HIGHLIGHTS OF TRANSFER LEARNING MODEL:
-  •	Used MobileNet pre-trained on ImageNet Dataset
-  •	Encoded the features using MobileNet by removing the tail of dense layers.
-  •	UNet architecture is considered in the project as it is most preferable for MEDICAL IMAGES.
+  - Used MobileNet pre-trained on ImageNet Dataset
+  - Encoded the features using MobileNet by removing the tail of dense layers.
+  - UNet architecture is considered in the project as it is most preferable for MEDICAL IMAGES.
   •	For computation restrictions as we discussed above that for bounding boxes prediction, we are taking only images with target label 1 (Lung Opacity)
   •	We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
   •	For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
