@@ -118,20 +118,26 @@ The data is organized in folders:
   - stage_2_train_images.zip: The directory containing 26000 training set raw image (DICOM) files
   - stage_2_test_images.zip: The directory containing 3000 testing set raw image (DICOM) files 
 
-### DATASET INFORMATION:
-  - Stage_2_detailed_class_info.csv dataset: Class info csv contains 30227 rows with 2 columns patient Id and class
+## Exploratory Data Analysis
+### Dataset Information
+The dataset comprises DICOM images and CSV files detailing patient IDs, class information, and bounding box coordinates for detected lung opacities.
+
+- Stage_2_detailed_class_info.csv dataset: Class info csv contains 30227 rows with 2 columns patient Id and class
  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/414335db-f0b5-4caa-8ace-68d156254fc8)
 
-  - Structure of stage_2_train_labels.csv dataset: train_labels.csv contains 30227 rows with columns
+- Structure of stage_2_train_labels.csv dataset: train_labels.csv contains 30227 rows with columns
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/7069ee92-6e47-47ae-8c5a-4be16b78687d)
 
 - DATA FIELD AND TYPES in the train_labels.csv: 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/d5d3edba-a2a8-457e-8e9b-494fc17e0a18)
+  - patientId – Patient Id corresponds to identification of images.
+  - X - the upper-left x coordinate of the bounding box.
+  - Y - the upper-left y coordinate of the bounding box.
+  - Width - the width of the bounding box.
+  - Height - the height of the bounding box.
+  - Target - the binary Target, indicating whether this sample has evidence of pneumonia
+Each row in the CSV file contains a patient Id (one unique value per patient), a target (either 0 or 1 for absence or presence of pneumonia, respectively) and the corresponding abnormality bounding box defined by the upper-left hand corner (x, y) coordinate and its corresponding width and height.
 
-
-## Exploratory Data Analysis
-### Dataset Information
-The dataset comprises DICOM images and CSV files detailing patient IDs, class information, and bounding box coordinates for detected lung opacities.
 
 ### Data Merging
 Data from multiple CSV files was combined into a single DataFrame to facilitate analysis.
