@@ -157,8 +157,10 @@ The class imbalance was evident in the dataset, with a higher number of non-pneu
 
 ### EDA on DICOM Images Dataset
 Exploratory analysis on DICOM images provided insights into the characteristics of pneumonia opacities and other lung conditions.
+
 •	Distribution of Target among Males and Females
 •	Males cases are more as compared to female, but this is not hypothetically true that males are more susceptible to disease.
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/1a14977d-4c2c-4076-b938-e84c291b65bf)
 
 
@@ -166,11 +168,13 @@ Exploratory analysis on DICOM images provided insights into the characteristics 
 Visualizations were created to demonstrate how bounding boxes can highlight areas of lung opacity in X-ray images.
 
 •	Sample of Image of a random patient:
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/cc60741f-0e90-4203-a3e7-b8ec12a685be)
 
 •	Dicom images with Bounding box locating lung opacity:
 
 Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/2b125ed7-53f6-4008-8ab4-b3f3cbf7517b)
 
 ## Data Pre-Processing
