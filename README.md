@@ -168,11 +168,14 @@ We used Transfer Learning model with two branches one for classification other f
   - For computation restrictions as we discussed above that for bounding boxes prediction, we are taking only images with target label 1 (Lung Opacity)
   - We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
   - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
+    
 - Model Accuracy Visualization and Classification Report:
+  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/d27ab592-3188-4cc3-a764-0ca96a5ae568)
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/5c60d495-e16c-4fbd-9280-d1e0b0544d86)
 
 - For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
+  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/f2eb44ce-2d38-4596-986a-d77b34f6a6ad)  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3d567089-2de7-448f-ba87-86bb5af5c09c)
 
