@@ -154,7 +154,8 @@ So, for UNET we created another set containing only images with target as 1 (Lun
   - After flattening of feature vector, we applied 2 dense layers and last layer with SoftMax activation.
   - Achieved Evaluation accuracy obtained is 82%
 
-- Model Accuracy in basic CNN: 
+- Model Accuracy in basic CNN:
+  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3f81c952-743e-4e3d-9333-2b05a6ad9df2)
 
 ### Transfer Learning Model
