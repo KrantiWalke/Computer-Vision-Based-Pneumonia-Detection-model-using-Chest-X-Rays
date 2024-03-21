@@ -94,45 +94,38 @@ CXRs are the most commonly performed diagnostic imaging study. A number of facto
 Source: [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/overview) from Kaggle.
 
 ## Problem Statement, Data, and Findings
-•	The goal is to build a pneumonia detection system to locate the position of inflammation in an image. 
+- The goal is to build a pneumonia detection system to locate the position of inflammation in an image. 
 
-•	While we are theoretically detecting “lung opacities”, there are lung opacities that are not pneumonia related. some of these are labelled “Not Normal No Lung Opacity”. 
+- While we are theoretically detecting “lung opacities”, there are lung opacities that are not pneumonia related. some of these are labelled “Not Normal No Lung Opacity”. 
 
-•	This extra third class indicates that while pneumonia was determined not to be present, there was nonetheless some type of abnormality on the image and oftentimes this finding may mimic the appearance of true pneumonia
+- This extra third class indicates that while pneumonia was determined not to be present, there was nonetheless some type of abnormality on the image and oftentimes this finding may mimic the appearance of true pneumonia
 
 ### Data Source: 
 RSNA Pneumonia Detection Challenge by Kaggle (https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data)
 
 The data is organized in folders:
 
-	The training data is provided as a set of patient Ids and bounding boxes. Bounding boxes are defined as follows: x-min, y-min, width, height
-	There is also target column “ Target “ , indicating pneumonia or non-pneumonia.
-	There may be multiple rows per patient Id
-	All provided images are in DICOM format
+● The training data is provided as a set of patient Ids and bounding boxes. Bounding boxes are defined as follows: x-min, y-min, width, height
 
-stage_2_detailed_class_info.csv:  
-In class detailed info dataset are given the detailed information about the type of positive or negative class associated with a certain patient.
+● There is also target column “ Target “ , indicating pneumonia or non-pneumonia.
 
-stage_2_train_labels.csv:
-In train labels dataset are given the patient ID and the window (x min, y min, width and height of the) containing evidence of pneumonia.
+● There may be multiple rows per patient Id
 
-stage_2_train_images.zip: 
-The directory containing 26000 training set raw image (DICOM) files
+● All provided images are in DICOM format
 
-stage_2_test_images.zip:
-The directory containing 3000 testing set raw image (DICOM) files 
+  - stage_2_detailed_class_info.csv:  In class detailed info dataset are given the detailed information about the type of positive or negative class associated with a certain patient.
+  - stage_2_train_labels.csv: In train labels dataset are given the patient ID and the window (x min, y min, width and height of the) containing evidence of pneumonia.
+  - stage_2_train_images.zip: The directory containing 26000 training set raw image (DICOM) files
+  - stage_2_test_images.zip: The directory containing 3000 testing set raw image (DICOM) files 
 
 ### DATASET INFORMATION:
-Stage_2_detailed_class_info.csv dataset: 
-Class info csv contains 30227 rows with 2 columns patient Id and class
+  - Stage_2_detailed_class_info.csv dataset: Class info csv contains 30227 rows with 2 columns patient Id and class
  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/414335db-f0b5-4caa-8ace-68d156254fc8)
 
-
-Structure of stage_2_train_labels.csv dataset: train_labels.csv contains 30227 rows with columns
+  - Structure of stage_2_train_labels.csv dataset: train_labels.csv contains 30227 rows with columns
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/7069ee92-6e47-47ae-8c5a-4be16b78687d)
 
-DATA FIELD AND TYPES in the train_labels.csv: 
-
+- DATA FIELD AND TYPES in the train_labels.csv: 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/d5d3edba-a2a8-457e-8e9b-494fc17e0a18)
 
 
