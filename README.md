@@ -95,7 +95,9 @@ Source: [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneum
 
 ## Problem Statement, Data, and Findings
 •	The goal is to build a pneumonia detection system to locate the position of inflammation in an image. 
+
 •	While we are theoretically detecting “lung opacities”, there are lung opacities that are not pneumonia related. some of these are labelled “Not Normal No Lung Opacity”. 
+
 •	This extra third class indicates that while pneumonia was determined not to be present, there was nonetheless some type of abnormality on the image and oftentimes this finding may mimic the appearance of true pneumonia
 
 ### Data Source: 
