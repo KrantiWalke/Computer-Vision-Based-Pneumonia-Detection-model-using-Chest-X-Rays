@@ -107,8 +107,10 @@ Visualizations were created to demonstrate how bounding boxes can highlight area
 - Sample of Image of a random patient: 
 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/cc60741f-0e90-4203-a3e7-b8ec12a685be)
+
 - Dicom images with Bounding box locating lung opacity:
-Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
+  - Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/2b125ed7-53f6-4008-8ab4-b3f3cbf7517b)
 
 ## Data Pre-Processing
@@ -167,11 +169,14 @@ We used Transfer Learning model with two branches one for classification other f
   - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
 
 #### Model Accuracy Visualization and Classification Report:
-![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c)
+
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c)
 
 - For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
 
-![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/f2eb44ce-2d38-4596-986a-d77b34f6a6ad)  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3d567089-2de7-448f-ba87-86bb5af5c09c)
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/f2eb44ce-2d38-4596-986a-d77b34f6a6ad)  
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3d567089-2de7-448f-ba87-86bb5af5c09c)
 
 
 ## Test Prediction and Final Submission Excel Sheet
@@ -187,6 +192,7 @@ Since our model was underfit and not giving accurate mask prediction, from any p
 
 ### Predicting Result
 Below image is highlighting anomaly area in both 128x128 resolution(left) and 1024x1024 resolution(right):
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/504d2751-eb2f-4c2e-80d4-921f2945b170)
 
 ## Submission:
