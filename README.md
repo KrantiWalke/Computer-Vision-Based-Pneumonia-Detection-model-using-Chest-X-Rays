@@ -1,4 +1,4 @@
-# Capstone Project: Pneumonia Detection using Chest X-Rays
+# Computer Vision Based Pneumonia Detection Model using Chest X-Rays
 
 ## Table of Contents
 - [Overview](#overview)
