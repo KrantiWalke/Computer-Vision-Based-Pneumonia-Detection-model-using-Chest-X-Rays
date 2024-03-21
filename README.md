@@ -168,23 +168,22 @@ We used Transfer Learning model with two branches one for classification other f
   - We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
   - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
 - Model Accuracy Visualization and Classification Report:
-![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c) 
-![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  
-  - For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
+  - ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c)
+  - ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  
+- For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/f2eb44ce-2d38-4596-986a-d77b34f6a6ad)  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3d567089-2de7-448f-ba87-86bb5af5c09c)
 
 
 ## Test Prediction and Final Submission Excel Sheet
 First, we loaded both Classification and Mask Predictor models weights from hard drive location. Note we are using transfer learning model for final classification predictions reason for that is MobileNet took less computation time and will give quicker prediction in production as compared to base CNN model for classification.
+
 For prediction on test dataset images which are present in hard drive location we created a user defined function called test_prediction, the functions takes few random pictures from the path of images and apply all pre-processing steps which we did for images on which we trained the model and then we predicted if the patient has Lung Opacity or not.
 
-
-Below we discussed the steps if patient has Lung Opacity or No Lung Opacity (Normal):
-
-- If dicom image of a patient predicted the person has Lung Opacity, then the same image will go into our second model which is UNet model for prediction of mask. After prediction of mask we used Image processing library OpenCV to find Contours and each contour predicted 4 coordinates of bounding boxes.
-Since our model was underfit and not giving accurate mask prediction, from any predicted mark we were getting more than 2 contours hence more than two bounding boxes for each image. To solving this issue, we first used Non-Max Suppression (NMS) but still we were getting noisy small bounding boxes along with two larger boxes. Then after we used a simple mathematics approach, we calculated area of rectangle for each predicted box and chose top two boxes based on maximum area.
-- If dicom image of a patient predicted the person is normal and no anomaly is present in his/her X-ray, then in this case we don’t need to call UNet Model for prediction of any bounding boxes. So, in this case we updated all coordinates as zero.
+- Below we discussed the steps if patient has Lung Opacity or No Lung Opacity (Normal):
+  - If dicom image of a patient predicted the person has Lung Opacity, then the same image will go into our second model which is UNet model for prediction of mask. After prediction of mask we used Image processing library OpenCV to find Contours and each contour predicted 4 coordinates of bounding boxes.
+  - Since our model was underfit and not giving accurate mask prediction, from any predicted mark we were getting more than 2 contours hence more than two bounding boxes for each image. To solving this issue, we first used Non-Max Suppression (NMS) but still we were getting noisy small bounding boxes along with two larger boxes. Then after we used a simple mathematics approach, we calculated area of rectangle for each predicted box and chose top two boxes based on maximum area.
+  - If dicom image of a patient predicted the person is normal and no anomaly is present in his/her X-ray, then in this case we don’t need to call UNet Model for prediction of any bounding boxes. So, in this case we updated all coordinates as zero.
 
 ### Predicting Result
 Below image is highlighting anomaly area in both 128x128 resolution(left) and 1024x1024 resolution(right):
