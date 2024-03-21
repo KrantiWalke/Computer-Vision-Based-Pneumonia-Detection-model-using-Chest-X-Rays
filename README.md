@@ -155,12 +155,13 @@ A CNN model was developed with layers designed to capture features relevant to p
   - Achieved Evaluation accuracy obtained is 82%
 
 #### Model Accuracy in basic CNN: 
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3f81c952-743e-4e3d-9333-2b05a6ad9df2)
 
 ### Transfer Learning Model
 We used Transfer Learning model with two branches one for classification other for bounding box prediction using UNet. UNet architecture contains encoder and decoder layers, encoder layers of the transfer learning model are derived from MobileNet architecture and decoder is done using Upsampling of the blocks from the MobileNet architecture until we reach the actual size of the input i.e. 128x128
 
-#### HIGHLIGHTS OF TRANSFER LEARNING MODEL:
+#### - HIGHLIGHTS OF TRANSFER LEARNING MODEL:
   - Used MobileNet pre-trained on ImageNet Dataset
   - Encoded the features using MobileNet by removing the tail of dense layers.
   - UNet architecture is considered in the project as it is most preferable for MEDICAL IMAGES.
@@ -168,7 +169,7 @@ We used Transfer Learning model with two branches one for classification other f
   - We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
   - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
 
-#### Model Accuracy Visualization and Classification Report:
+#### - Model Accuracy Visualization and Classification Report:
 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c)
