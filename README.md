@@ -168,7 +168,6 @@ We used Transfer Learning model with two branches one for classification other f
   - We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
   - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
 - Model Accuracy Visualization and Classification Report:
-
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/d27ab592-3188-4cc3-a764-0ca96a5ae568)
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/5c60d495-e16c-4fbd-9280-d1e0b0544d86)
 
