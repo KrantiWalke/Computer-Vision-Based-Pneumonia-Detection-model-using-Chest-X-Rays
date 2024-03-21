@@ -136,23 +136,42 @@ The dataset comprises DICOM images and CSV files detailing patient IDs, class in
   - Width - the width of the bounding box.
   - Height - the height of the bounding box.
   - Target - the binary Target, indicating whether this sample has evidence of pneumonia
+
 Each row in the CSV file contains a patient Id (one unique value per patient), a target (either 0 or 1 for absence or presence of pneumonia, respectively) and the corresponding abnormality bounding box defined by the upper-left hand corner (x, y) coordinate and its corresponding width and height.
 
 
 ### Data Merging
-Data from multiple CSV files was combined into a single DataFrame to facilitate analysis.
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/13125a06-085a-4e5b-a3a2-eb39e3cf218f)
+Merged all csv into one data frame with respect to unique patient id x1, y1, w1, h1 represents coordinates of first bounding box and x2, y2, w2, h2 represents coordinates of second bounding box.
+Note: we are taking only two bounding boxes for model building exercise because majority of people are detected by two bounding boxes indicating Lung Opacity. So, our Model will try to predict two boxes for patients with Lung Opacity.
+
 
 ### Class and Target Information
 An analysis of class distribution showed an imbalance, necessitating techniques to address this issue in model training.
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/8d4943a6-2237-4d41-bebf-ae2ff0d20d0a)
+
 
 ### Imbalance Class Problem
 The class imbalance was evident in the dataset, with a higher number of non-pneumonia cases compared to pneumonia cases.
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/4b0abc6c-8492-426c-9d8d-f85b21a2c846)
 
 ### EDA on DICOM Images Dataset
 Exploratory analysis on DICOM images provided insights into the characteristics of pneumonia opacities and other lung conditions.
+•	Distribution of Target among Males and Females
+•	Males cases are more as compared to female, but this is not hypothetically true that males are more susceptible to disease.
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/1a14977d-4c2c-4076-b938-e84c291b65bf)
 
-### DICOM Images with Bounding Box Locating Lung Opacity
+
+### DICOM Images
 Visualizations were created to demonstrate how bounding boxes can highlight areas of lung opacity in X-ray images.
+
+•	Sample of Image of a random patient:
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/cc60741f-0e90-4203-a3e7-b8ec12a685be)
+
+•	Dicom images with Bounding box locating lung opacity:
+
+Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
+![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/2b125ed7-53f6-4008-8ab4-b3f3cbf7517b)
 
 ## Data Pre-Processing
 The preprocessing steps included resizing images for model input and addressing class imbalance by creating balanced datasets.
