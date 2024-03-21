@@ -104,7 +104,8 @@ Exploratory analysis on DICOM images provided insights into the characteristics 
 
 ### DICOM Images
 Visualizations were created to demonstrate how bounding boxes can highlight areas of lung opacity in X-ray images.
-- Sample of Image of a random patient:
+- Sample of Image of a random patient: 
+
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/cc60741f-0e90-4203-a3e7-b8ec12a685be)
 - Dicom images with Bounding box locating lung opacity:
 Below Visualization is showing if the personal has Lung Opacity present then infected area will be highlighted with at least two rectangles.
@@ -161,14 +162,14 @@ We used Transfer Learning model with two branches one for classification other f
   - Used MobileNet pre-trained on ImageNet Dataset
   - Encoded the features using MobileNet by removing the tail of dense layers.
   - UNet architecture is considered in the project as it is most preferable for MEDICAL IMAGES.
-  •	For computation restrictions as we discussed above that for bounding boxes prediction, we are taking only images with target label 1 (Lung Opacity)
-  •	We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
-  •	For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
+  - For computation restrictions as we discussed above that for bounding boxes prediction, we are taking only images with target label 1 (Lung Opacity)
+  - We are feeding 128x128x3 dimension images into the model and predicting the mask of size 128x128 and similarly we are using the same MobileNet for classification prediction.
+  - For Classification we got 80% of accuracy for evaluation dataset. Model learned fast and moved towards overfit zone but with callbacks we chose decent model for further predictions of test dataset.
 
 #### Model Accuracy Visualization and Classification Report:
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/89892e50-569e-4314-963d-08165a3cda27)  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/625091aa-fdf6-49bd-87e1-1976613f284c)
 
-•	For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
+- For Mask Prediction we got very low prediction of 60% which is clearly underfit model but due to computations we were not able to make model more deeper (we are using only one conv layer of 16 features after Upsampling) and also we could not choose batch size more than 2 on GPU Machines and for gradient decent batch size plays important role.
 
 ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/f2eb44ce-2d38-4596-986a-d77b34f6a6ad)  ![image](https://github.com/KrantiWalke/Computer-Vision-Projects/assets/72568005/3d567089-2de7-448f-ba87-86bb5af5c09c)
 
@@ -180,9 +181,9 @@ For prediction on test dataset images which are present in hard drive location w
 
 Below we discussed the steps if patient has Lung Opacity or No Lung Opacity (Normal):
 
-•	If dicom image of a patient predicted the person has Lung Opacity, then the same image will go into our second model which is UNet model for prediction of mask. After prediction of mask we used Image processing library OpenCV to find Contours and each contour predicted 4 coordinates of bounding boxes.
+- If dicom image of a patient predicted the person has Lung Opacity, then the same image will go into our second model which is UNet model for prediction of mask. After prediction of mask we used Image processing library OpenCV to find Contours and each contour predicted 4 coordinates of bounding boxes.
 Since our model was underfit and not giving accurate mask prediction, from any predicted mark we were getting more than 2 contours hence more than two bounding boxes for each image. To solving this issue, we first used Non-Max Suppression (NMS) but still we were getting noisy small bounding boxes along with two larger boxes. Then after we used a simple mathematics approach, we calculated area of rectangle for each predicted box and chose top two boxes based on maximum area.
-•	If dicom image of a patient predicted the person is normal and no anomaly is present in his/her X-ray, then in this case we don’t need to call UNet Model for prediction of any bounding boxes. So, in this case we updated all coordinates as zero.
+- If dicom image of a patient predicted the person is normal and no anomaly is present in his/her X-ray, then in this case we don’t need to call UNet Model for prediction of any bounding boxes. So, in this case we updated all coordinates as zero.
 
 ### Predicting Result
 Below image is highlighting anomaly area in both 128x128 resolution(left) and 1024x1024 resolution(right):
@@ -191,15 +192,14 @@ Below image is highlighting anomaly area in both 128x128 resolution(left) and 10
 ## Submission:
 For submission we created similar function as above but only changes we made that this function returns only data frame and we exported the data like sample submission.
 
-
 ## Learning and Improvements
 With this Capstone Project we learned how to implement Object Detection on medical Images and we faced few challenges mainly related to computers and powerful GPU Machines as Google Colab is good for small Deep Learning Problems but for problem like this we need Big Nvidia GPUs, not single GPU we need mutli GPUs for parallel processing.
 
 For Improvements we may fit this model on big GPU machine to get appropriate results as we tested few epochs with deep CNN UNet and 32 batch size, model was doing better than the above UNet but each epoch was taking more than 2 hours to process. So, we dropped the idea of training such a complex model.
 
-*Team Members: Dhruv Khanna, Harish, Saurav, Kranti, and Ragu.*
+- *Team Members: Dhruv Khanna, Harish, Saurav, Kranti, and Ragu.*
 
-*Submission Date: 17/05/2020*
+- *Submission Date: 17/05/2020*
 
-*Note: All code developed for this project is original and created by the team members.*
+- *Note: All code developed for this project is original and created by the team members.*
 
